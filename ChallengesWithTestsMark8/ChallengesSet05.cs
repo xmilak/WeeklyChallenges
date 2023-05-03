@@ -7,37 +7,88 @@ namespace ChallengesWithTestsMark8
     {
         public int GetNextNumberDivisibleByN(int startNumber, int n)
         {
-            throw new NotImplementedException();
+            startNumber++;
+            while (startNumber % n != 0)
+            {
+                startNumber++;
+            }
+            return startNumber;
         }
 
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
         {
-            throw new NotImplementedException();
+            for (var i = 0; i < businesses.Length; i++)
+            {
+                if (businesses[i].TotalRevenue == 0)
+                {
+                    businesses[i].Name = "CLOSED";
+                }
+            }
         }
 
         public bool IsAscendingOrder(int[] numbers)
         {
-            throw new NotImplementedException();
+            for (var i = 0; i < numbers.Length - 1; i++)
+            {
+                if (numbers[i] > numbers[i + 1])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public int SumElementsThatFollowAnEven(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+            var sum = 0;
+            for (var i = 0; i < numbers.Length - 1; i++)
+            {
+                if (numbers[i] % 2 == 0)
+                {
+                    sum += numbers[i + 1];
+                }
+            }
+            return sum;
         }
 
         public string TurnWordsIntoSentence(string[] words)
         {
-            throw new NotImplementedException();
+            return (words == null || words.Length == 0) ? "" : string.Join(" ", words).Trim();
         }
 
         public double[] GetEveryFourthElement(List<double> elements)
         {
-            throw new NotImplementedException();
+            if (elements == null || elements.Count == 0)
+            {
+                return new double[0];
+            }
+            List<double> EveryFourthElement = new List<double>();
+
+            for (var i = 3; i < elements.Count; i += 4)
+            {
+                EveryFourthElement.Add(elements[i]);
+            }
+            return EveryFourthElement.ToArray();
+
         }
 
         public bool TwoDifferentElementsInArrayCanSumToTargetNumber(int[] nums, int targetNumber)
         {
-            throw new NotImplementedException();
+            for (var i = 0; i  <= nums.Length; i++)
+            {
+                for (var k = i + 1;k < nums.Length; k++)
+                {
+                    if (nums[i] + nums[k] == targetNumber)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
